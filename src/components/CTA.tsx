@@ -1,7 +1,17 @@
+"use client";
+
 import React from 'react'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 
 const CTA = () => {
+
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className='pb-[250px] pt-[120px] relative overflow-clip'>
             <div className="container relative">
@@ -29,11 +39,14 @@ const CTA = () => {
                             Get in touch to explore Partnership Opportunities.<br />Invest in the future of Logistics.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                            <button className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 sm:py-3 bg-white text-blue-600 font-semibold rounded-md transition text-sm sm:text-base shadow-lg">
+                            <a href="/invest" className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 sm:py-3 bg-white text-blue-500 font-semibold rounded-md transition text-sm sm:text-base shadow-lg">
                                 Invest in Our Vision
                                 <MdKeyboardArrowRight className="ml-1 group-hover:translate-x-1 transition-transform duration-200" />
-                            </button>
-                            <button className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 text-white font-semibold border border-white rounded-md transition text-sm sm:text-base shadow-lg">
+                            </a>
+                            <button
+                                className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 text-white font-semibold border border-white rounded-md transition text-sm sm:text-base shadow-lg"
+                                onClick={() => scrollToSection('contact')}
+                            >
                                 Contact Us
                                 <MdKeyboardArrowRight className="ml-1 group-hover:translate-x-1 transition-transform duration-200" />
                             </button>

@@ -36,10 +36,10 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <button className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 sm:py-3 bg-white text-black font-semibold rounded-md transition text-sm sm:text-base shadow-lg">
+          <a href="/invest" className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 sm:py-3 bg-white text-black font-semibold rounded-md transition text-sm sm:text-base shadow-lg">
             Invest in Our Vision
             <MdKeyboardArrowRight className="ml-1 group-hover:translate-x-1 transition-transform duration-200" />
-          </button>
+          </a>
           <button 
             className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 text-white font-semibold border border-white rounded-md transition text-sm sm:text-base shadow-lg"
             onClick={() => scrollToSection('contact')}

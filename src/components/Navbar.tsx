@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowRight } from "react-icons/md";
+import Link from 'next/link';
 
 const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -66,7 +67,7 @@ const Navbar = () => {
 
           {/* Right-side Buttons */}
           <div className="hidden lg:flex items-center ml-auto">
-            <a href="#" className="nav-item mr-9" onClick={(e) => { e.preventDefault(); scrollToSection('signin'); }}>Sign In</a>
+            <Link href="/signIn" className="nav-item mr-9">Sign In</Link>
             <a
               href="#"
               className="relative group inline-block py-2.5 px-3 text-sm font-semibold text-black bg-white rounded-md shadow-lg"
@@ -111,7 +112,7 @@ const Navbar = () => {
               </ul>
 
               <div className="mt-6 space-y-2">
-                <a href="#" className="block py-3 px-4 text-white bg-transparent border border-white/20 rounded-lg text-center" onClick={(e) => { e.preventDefault(); scrollToSection('signin'); }}>Sign In</a>
+                <Link href="/signIn" className="block py-3 px-4 text-white bg-transparent border border-white/20 rounded-lg text-center" onClick={() => setMobileNavOpen(false)}>Sign In</Link>
                 <a href="#" className="block py-3 px-4 text-black bg-white rounded-lg text-center font-semibold" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact Us</a>
               </div>
             </div>
