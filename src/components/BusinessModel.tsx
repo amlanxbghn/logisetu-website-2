@@ -3,7 +3,7 @@ import { MagicCard } from "./ui/magic-card"
 
 export default function BusinessModel() {
     return (
-        <section className="w-full py-24 lg:py-32 bg-black">
+        <section id="business-model" className="w-full py-24 lg:py-32 bg-black">
             <div className="container">
                 <h2 className="text-4xl md:text-5xl font-medium text-center mb-3 tracking-tight bg-gradient-to-b from-white via-white to-[#111111] text-transparent bg-clip-text">
                     Our Business Model

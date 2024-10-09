@@ -10,7 +10,7 @@ interface AdvantageCardProps {
 
 const Advantage = () => {
     return (
-        <div className="relative w-full py-24 lg:py-32">
+        <div id="advantages" className="relative w-full py-24 lg:py-32">
 
             {/* <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent opacity-10"></div> */}
 

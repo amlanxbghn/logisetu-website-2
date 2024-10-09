@@ -1,10 +1,30 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setMobileNavOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (mobileNavOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileNavOpen]);
 
   return (
     <section>
@@ -14,6 +34,7 @@ const Navbar = () => {
           <a
             href="#"
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-semibold"
+            onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
           >
             LOGISETU
           </a>
@@ -37,18 +58,19 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden lg:flex lg:space-x-12">
-            <li><a href="#" className="nav-item">Our Mission</a></li>
-            <li><a href="#" className="nav-item">Advantages</a></li>
-            <li><a href="#" className="nav-item">Business Model</a></li>
-            <li><a href="#" className="nav-item">Our Team</a></li>
+            <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('mission'); }}>Our Mission</a></li>
+            <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('advantages'); }}>Advantages</a></li>
+            <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('business-model'); }}>Business Model</a></li>
+            <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}>Our Team</a></li>
           </ul>
 
           {/* Right-side Buttons */}
           <div className="hidden lg:flex items-center ml-auto">
-            <a href="#" className="nav-item mr-9">Sign In</a>
+            <a href="#" className="nav-item mr-9" onClick={(e) => { e.preventDefault(); scrollToSection('signin'); }}>Sign In</a>
             <a
               href="#"
               className="relative group inline-block py-2.5 px-3 text-sm font-semibold text-black bg-white rounded-md shadow-lg"
+              onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
             >
               <span className="flex items-center">
                 Contact Us
@@ -62,7 +84,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {mobileNavOpen && (
         <div className="fixed top-0 left-0 bottom-0 w-5/6 max-w-md z-50">
-          <div onClick={() => setMobileNavOpen(!mobileNavOpen)} className="fixed inset-0 bg-black opacity-50"></div>
+          <div onClick={() => setMobileNavOpen(false)} className="fixed inset-0 bg-black opacity-50"></div>
           <nav className="relative w-full h-full bg-black/30 backdrop-blur-2xl border-r overflow-y-auto">
             <div className="p-4 flex items-center">
               <h1 className="text-lg font-semibold">LOGISETU</h1>
@@ -81,16 +103,16 @@ const Navbar = () => {
 
             <div className="py-6 px-4">
               <ul className="space-y-2">
-                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Home</a></li>
-                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Our Mission</a></li>
-                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Advantages</a></li>
-                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Business Model</a></li>
-                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Our Team</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg" onClick={(e) => { e.preventDefault(); scrollToSection('mission'); }}>Our Mission</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg" onClick={(e) => { e.preventDefault(); scrollToSection('advantages'); }}>Advantages</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg" onClick={(e) => { e.preventDefault(); scrollToSection('business-model'); }}>Business Model</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg" onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}>Our Team</a></li>
               </ul>
 
               <div className="mt-6 space-y-2">
-                <a href="#" className="block py-3 px-4 text-white bg-transparent border border-white/20 rounded-lg text-center">Sign In</a>
-                <a href="#" className="block py-3 px-4 text-black bg-white rounded-lg text-center font-semibold">Contact Us</a>
+                <a href="#" className="block py-3 px-4 text-white bg-transparent border border-white/20 rounded-lg text-center" onClick={(e) => { e.preventDefault(); scrollToSection('signin'); }}>Sign In</a>
+                <a href="#" className="block py-3 px-4 text-black bg-white rounded-lg text-center font-semibold" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact Us</a>
               </div>
             </div>
 
