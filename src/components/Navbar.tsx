@@ -6,7 +6,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
