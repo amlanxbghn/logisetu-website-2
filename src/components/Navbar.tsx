@@ -9,99 +9,99 @@ const Navbar = () => {
   return (
     <section>
       <nav className="py-3 bg-white/5 border-b border-white/20 backdrop-blur z-50 fixed top-0 left-0 right-0">
-        <div className="container px-4 mx-auto">
-          <div className="flex items-center relative">
-            <a
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inline-block text-lg font-semibold"
-              href="#"
+        <div className="container px-4 mx-auto flex items-center relative">
+          {/* Logo */}
+          <a
+            href="#"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-semibold"
+          >
+            LOGISETU
+          </a>
+
+          {/* Mobile Menu Toggle */}
+          <div className="lg:hidden ml-auto">
+            <button
+              onClick={() => setMobileNavOpen(!mobileNavOpen)}
+              className="w-10 h-10 flex items-center justify-center bg-white/20 backdrop-blur rounded-md"
             >
-              <h1 className=''>LOGISETU</h1>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path 
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M2.5 5C2.5 4.72386 2.72386 4.5 3 4.5H17C17.2761 4.5 17.5 4.72386 17.5 5C17.5 5.27614 17.2761 5.5 17 5.5H3C2.72386 5.5 2.5 5.27614 2.5 5ZM2.5 10C2.5 9.72386 2.72386 9.5 3 9.5H17C17.2761 9.5 17.5 9.72386 17.5 10C17.5 10.2761 17.2761 10.5 17 10.5H3C2.72386 10.5 2.5 10.2761 2.5 10ZM3 14.5C2.72386 14.5 2.5 14.7239 2.5 15C2.5 15.2761 2.72386 15.5 3 15.5H17C17.2761 15.5 17.5 15.2761 17.5 15C17.5 14.7239 17.2761 14.5 17 14.5H3Z" 
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Desktop Menu */}
+          <ul className="hidden lg:flex lg:space-x-12">
+            <li><a href="#" className="nav-item">Our Mission</a></li>
+            <li><a href="#" className="nav-item">Advantages</a></li>
+            <li><a href="#" className="nav-item">Business Model</a></li>
+            <li><a href="#" className="nav-item">Our Team</a></li>
+          </ul>
+
+          {/* Right-side Buttons */}
+          <div className="hidden lg:flex items-center ml-auto">
+            <a href="#" className="nav-item mr-9">Sign In</a>
+            <a
+              href="#"
+              className="relative group inline-block py-2.5 px-3 text-sm font-semibold text-black bg-white rounded-md shadow-lg"
+            >
+              <span className="flex items-center">
+                Contact Us
+                <MdKeyboardArrowRight className="ml-1 transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
             </a>
-
-            <div className="lg:hidden ml-auto">
-              <button
-                onClick={() => setMobileNavOpen(!mobileNavOpen)}
-                className="flex w-10 h-10 items-center justify-center bg-white rounded-md"
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 5C2.5 4.72386 2.72386 4.5 3 4.5H17C17.2761 4.5 17.5 4.72386 17.5 5C17.5 5.27614 17.2761 5.5 17 5.5H3C2.72386 5.5 2.5 5.27614 2.5 5ZM2.5 10C2.5 9.72386 2.72386 9.5 3 9.5H17C17.2761 9.5 17.5 9.72386 17.5 10C17.5 10.2761 17.2761 10.5 17 10.5H3C2.72386 10.5 2.5 10.2761 2.5 10ZM3 14.5C2.72386 14.5 2.5 14.7239 2.5 15C2.5 15.2761 2.72386 15.5 3 15.5H17C17.2761 15.5 17.5 15.2761 17.5 15C17.5 14.7239 17.2761 14.5 17 14.5H3Z" fill="#111827" />
-                </svg>
-
-              </button>
-            </div>
-
-            <ul className="hidden lg:flex lg:w-auto lg:space-x-12">
-              <li>
-                <a className="nav-item" href="#">
-                  Our Mission
-                </a>
-              </li>
-              <li>
-                <a className="nav-item" href="#">
-                  Advantages
-                </a>
-              </li>
-              <li>
-                <a className="nav-item" href="#">
-                  Business Model
-                </a>
-              </li>
-              <li>
-                <a className="nav-item" href="#">
-                  Our Team
-                </a>
-              </li>
-            </ul>
-            <div className="hidden lg:block ml-auto">
-              <div className="flex items-center">
-                <a className="nav-item mr-9" href="#">
-                  Sign In
-                </a>
-                <a
-                  className="relative group inline-block py-2.5 px-3 text-sm font-semibold text-black bg-white rounded-md overflow-hidden shadow-lg"
-                  href="#"
-                >
-                  <span className="flex items-center relative">
-                    Contact Us
-                    <MdKeyboardArrowRight className="ml-1 group-hover:translate-x-1 transition-transform duration-200" />
-                  </span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </nav>
 
-      <div className={`${mobileNavOpen ? 'block' : 'hidden'} fixed top-0 left-0 bottom-0 w-5/6 max-w-md z-50`}>
-        <div onClick={() => setMobileNavOpen(!mobileNavOpen)} className="fixed inset-0 bg-gray-800 opacity-25"></div>
-        <nav className="relative flex flex-col py-6 px-10 w-full h-full bg-white border-r overflow-y-auto">
-          <div>
-            <ul className="mb-2">
-              <li>
-                <a className="block py-4 px-5 text-black hover:bg-blue-200 rounded-lg" href="#">
-                  Our Mission
-                </a>
-              </li>
-              <li>
-                <a className="block py-4 px-5 text-black hover:bg-blue-200 rounded-lg" href="#">
-                  Advantages
-                </a>
-              </li>
-              <li>
-                <a className="block py-4 px-5 text-black hover:bg-blue-200 rounded-lg" href="#">
-                  Business Model
-                </a>
-              </li>
-              <li>
-                <a className="block py-4 px-5 text-black hover:bg-blue-200 rounded-lg" href="#">
-                  Our Team
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      {/* Mobile Menu */}
+      {mobileNavOpen && (
+        <div className="fixed top-0 left-0 bottom-0 w-5/6 max-w-md z-50">
+          <div onClick={() => setMobileNavOpen(!mobileNavOpen)} className="fixed inset-0 bg-black opacity-50"></div>
+          <nav className="relative w-full h-full bg-black/30 backdrop-blur-2xl border-r overflow-y-auto">
+            <div className="p-4 flex items-center">
+              <h1 className="text-lg font-semibold">LOGISETU</h1>
+              <button onClick={() => setMobileNavOpen(false)} className="ml-auto text-white">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M6 18L18 6M6 6L18 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
 
+            <div className="py-6 px-4">
+              <ul className="space-y-2">
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Home</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Our Mission</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Advantages</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Business Model</a></li>
+                <li><a href="#" className="block py-3 px-4 hover:bg-white/10 rounded-lg">Our Team</a></li>
+              </ul>
+
+              <div className="mt-6 space-y-2">
+                <a href="#" className="block py-3 px-4 text-white bg-transparent border border-white/20 rounded-lg text-center">Sign In</a>
+                <a href="#" className="block py-3 px-4 text-black bg-white rounded-lg text-center font-semibold">Contact Us</a>
+              </div>
+            </div>
+
+            {/* Moved to the bottom */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/20">
+              <p className="text-zinc-400 text-sm">We'd love to hear from you</p>
+              <a href="mailto:info@logisetu.com" className="text-white text-sm font-semibold">info@logisetu.com</a>
+            </div>
+          </nav>
+        </div>
+      )}
     </section>
   );
 };
