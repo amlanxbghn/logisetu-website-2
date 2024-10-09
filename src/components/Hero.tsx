@@ -1,12 +1,21 @@
-import { cn } from "@/lib/utils"
-import AnimatedShinyText from "./ui/animated-shiny-text"
-import { MdKeyboardArrowRight } from "react-icons/md"
+"use client";
+
+import React from "react";
+import { cn } from "@/lib/utils";
+import AnimatedShinyText from "./ui/animated-shiny-text";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div id="home" className="relative py-36">
       <div className="container">
-
         <div className="z-10 flex mb-12 items-center justify-center">
           <div
             className={cn(
@@ -23,7 +32,7 @@ const Hero = () => {
           Transforming the Future of <span className="p-1 bg-gradient-to-l from-[#3B82F6] via-[#4dedff] to-white text-transparent bg-clip-text"> Transportation.</span>
         </h1>
         <p className="mb-6 md:mb-12 text-center text-zinc-400 text-lg md:text-xl font-medium">
-            Revolutionizing India's Logistics with Digital Efficiency on LogiSetu.
+          Revolutionizing India's Logistics with Digital Efficiency on LogiSetu.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
@@ -31,18 +40,17 @@ const Hero = () => {
             Invest in Our Vision
             <MdKeyboardArrowRight className="ml-1 group-hover:translate-x-1 transition-transform duration-200" />
           </button>
-          <button className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 text-white font-semibold border border-white rounded-md transition text-sm sm:text-base shadow-lg">
+          <button 
+            className="flex items-center justify-center group w-full sm:w-auto px-3 py-2.5 text-white font-semibold border border-white rounded-md transition text-sm sm:text-base shadow-lg"
+            onClick={() => scrollToSection('contact')}
+          >
             Contact Us
             <MdKeyboardArrowRight className="ml-1 group-hover:translate-x-1 transition-transform duration-200" />
           </button>
         </div>
-
       </div>
-
-      {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent opacity-10"></div> */}
-
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

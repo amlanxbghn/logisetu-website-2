@@ -1,9 +1,19 @@
-import Link from "next/link"
+"use client";
+
+import React from "react";
+import Link from "next/link";
 import { MdMail as Mail, MdPhone as Phone } from "react-icons/md";
 import { LuMapPin as MapPin } from "react-icons/lu";
 import { FaXTwitter as Twitter, FaLinkedinIn as LinkedIn, FaInstagram as Instagram} from "react-icons/fa6";
 
 const Footer = () => {
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className="container">
             <footer className="pb-12 pt-4">
@@ -34,16 +44,16 @@ const Footer = () => {
                         <div>
                             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                             <ul className="space-y-2">
-                                <li><Link href="#" className="nav-item">Home</Link></li>
-                                <li><Link href="#mission" className="nav-item">Our Mission</Link></li>
-                                <li><Link href="#advantage" className="nav-item">Advantages</Link></li>
-                                <li><Link href="#model" className="nav-item">Business Model</Link></li>
-                                <li><Link href="#team" className="nav-item">Our Team</Link></li>
+                                <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a></li>
+                                <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('mission'); }}>Our Mission</a></li>
+                                <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('advantages'); }}>Advantages</a></li>
+                                <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('business-model'); }}>Business Model</a></li>
+                                <li><a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}>Our Team</a></li>
                             </ul>
                         </div>
                         <div id="contact">
                             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-                            <ul id="contact" className="space-y-2">
+                            <ul className="space-y-2">
                                 <li className="flex items-center">
                                     <Mail className="w-4 h-4 mr-2" />
                                     <a href="mailto:info@logisetu.com" className="nav-item">
@@ -52,7 +62,6 @@ const Footer = () => {
                                 </li>
                                 <li className="flex items-center">
                                     <Phone className="w-4 h-4 mr-2" />
-
                                     <a href="tel:+911234567890" className="nav-item">
                                         +91 123 456 7890
                                     </a>
@@ -75,4 +84,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;
