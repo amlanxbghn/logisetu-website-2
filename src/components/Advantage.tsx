@@ -10,12 +10,12 @@ interface AdvantageCardProps {
 
 const Advantage = () => {
     return (
-        <div className="relative w-full py-12 md:py-24 lg:py-32">
+        <div className="relative w-full py-24 lg:py-32">
 
             {/* <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent opacity-10"></div> */}
 
             <div className="container">
-                <h2 className="text-4xl text-center md:text-5xl font-semibold pb-1.5 mb-1.5 tracking-tight bg-gradient-to-b from-white via-white to-[#111111] text-transparent bg-clip-text">
+                <h2 className="text-4xl text-center md:text-5xl font-medium pb-1.5 mb-1.5 tracking-tight bg-gradient-to-b from-white via-white to-[#111111] text-transparent bg-clip-text">
                     Advantages
                 </h2>
                 <p className="mb-16 text-center text-zinc-400 text-md md:text-lg font-medium">
