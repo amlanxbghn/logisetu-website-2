@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="container">
             <footer className="pb-12 pt-4">
-                <div className="container">
+                <div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="flex flex-col justify-between">
                             <div>
