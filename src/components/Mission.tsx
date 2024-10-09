@@ -11,7 +11,7 @@ const Mission = () => {
                 </h2>
                 <div>
                     <TextRevealByWord text="At LogiSetu, we aim to digitally transform India's logistics ecosystem by providing a unified, end-to-end transportation pipeline. We leverage real-time government data and AI-powered optimization to streamline load matching, route planning, and vehicle tracking—making logistics easier, faster, and more profitable for operators."
-                        className="text-2xl"
+                        className="text-2xl leading-relaxed"
                     />
                 </div>
             </div>
